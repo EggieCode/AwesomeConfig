@@ -10,6 +10,7 @@ awful.rules.rules = {
           border_color = beautiful.border_normal,
           focus = awful.client.focus.filter,
           raise = true,
+          maximized = false,
           keys = clientkeys,
           buttons = clientbuttons,
           screen = awful.screen.preferred,
@@ -39,7 +40,7 @@ awful.rules.rules = {
           "AlarmWindow",  -- Thunderbird's calendar.
           "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
-        }
+       }
       },
       properties = { floating = true }},
     { rule_any =  { type = { "normal", "dialog" }},
@@ -63,24 +64,31 @@ awful.rules.rules = {
       properties = { floating = true  } },
     { rule = { instance = "guake" },
       properties = { floating = true } },
-    { rule = { class = "Firefox" },
-      properties = { tag = tags[1][2] } },
-    { rule = { class = "Evolution" },
-      properties = { tag = tags[1][2] } }
 
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
 }
-if screen.count() > 1 then
+if screen.count() == 1 then
   awful.rules.rules = awful.util.table.join(awful.rules.rules, {
+        { rule = { class = "Firefox" },
+          properties = { tag = tags[1][2], maximized = false } },
+        { rule = { class = "Evolution" },
+          properties = { tag = tags[1][2], maximized = false  } }
   })
-elseif screen.count() > 2 then
+elseif screen.count() == 2 then
 	awful.rules.rules = awful.util.table.join(awful.rules.rules, {
-	    { rule = { class = "TeamSpeak 3" },
-	      properties = { tag = tags[3][1] } },
-	    { rule = { class = "Mumble" },
-	      properties = { tag = tags[3][1] } },
+        { rule = { class = "Firefox" },
+          properties = { tag = tags[2][1], maximized = false } },
+        { rule = { class = "Evolution" },
+          properties = { tag = tags[2][1], maximized = false  } },
+	})
+elseif screen.count() == 3 then
+	awful.rules.rules = awful.util.table.join(awful.rules.rules, {
+        { rule = { class = "Firefox" },
+          properties = { tag = tags[1][1], maximized = false } },
+        { rule = { class = "Evolution" },
+          properties = { tag = tags[1][1], maximized = false  } },
 	})
 end

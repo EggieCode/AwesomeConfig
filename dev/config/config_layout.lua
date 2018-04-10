@@ -53,19 +53,30 @@ layouts =
 
 
 tags = {}
-tags[1] = awful.tag({ "Term", "Web", "Dev", "Txt" ,"Social" ,"VM", "Game" }, 1,
-	            { layouts[3], layouts[1], layouts[1], layouts[1], layouts[6], layouts[7], layouts[6] }
-)
+if screen.count() == 1 then
+    tags[1] = awful.tag({ "Term", "Web", "Dev", "Txt" ,"Social" ,"VM", "Game" }, 1,
+                    { layouts[3], layouts[1], layouts[1], layouts[1], layouts[6], layouts[7], layouts[6] }
+    )
+end
 
 print ("Screens: " .. screen.count())
-if screen.count() > 1 then
+if screen.count() == 2 then
+    tags[1] = awful.tag({ "Term", "Web", "Dev", "Txt" ,"Social" ,"VM", "Game" }, 1,
+                    { layouts[3], layouts[1], layouts[1], layouts[1], layouts[6], layouts[7], layouts[6] }
+    )
 	tags[2] = awful.tag({ "Web", "Dev", "Txt" ,"Social" ,"VM", "Game" }, 2,
 			    { layouts[1], layouts[1], layouts[1], layouts[6], layouts[7], layouts[6] }
 	)
 end
 
-if screen.count() > 2 then
-	tags[3] = awful.tag({ "Steam", "Term", "3", " 4 ", " 5 ", " 6 "}, 3,
+if screen.count() == 3 then
+    tags[3] = awful.tag({ "Term", "Dev", "Dev", "Txt" ,"Social" ,"VM", "Game" }, 3,
+                { layouts[3], layouts[1], layouts[1], layouts[1], layouts[6], layouts[7], layouts[6] }
+    )
+	tags[1] = awful.tag({ "Web", "Dev", "Txt" ,"Social" ,"VM", "Game" }, 1,
+			    { layouts[1], layouts[1], layouts[1], layouts[6], layouts[7], layouts[6] }
+	)
+	tags[2] = awful.tag({ " 1 ", " 2 ", "3", " 4 ", " 5 ", " 6 "}, 2,
 			    { layouts[4], layouts[4], layouts[4] , layouts[4], layouts[4], layouts[4]}
 	)
 end

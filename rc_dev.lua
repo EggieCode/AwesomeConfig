@@ -66,7 +66,7 @@ if DEV then
 	require("dev.config.config_signals")
 	require("dev.config.config_rules")
 	require("dev.bars.top_bar")
-	require("dev.bars.bottom_bar")
+    require("dev.bars.bottom_bar")
 else
 	require("config.config_layout")
 	require("config.config_defines")

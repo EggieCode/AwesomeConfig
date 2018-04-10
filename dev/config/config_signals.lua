@@ -46,6 +46,7 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
+    awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn('terminator') end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "e", awesome.quit),
 
@@ -57,14 +58,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
-    awful.key({ modkey, "Shift"   }, "m",     function (c)
-            c.maximized = false
-            c.maximized_vertical=false
-            c.maximized_horizontal=false
-            c:raise()
-        end ,
-        {description = "demaximize", group = "client"}
-    ),
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
     --Dmenu
     awful.key({ modkey },            "d",     function ()
@@ -113,7 +106,16 @@ clientkeys = awful.util.table.join(
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
-        end)
+        end),
+    awful.key({ modkey, "Shift"   }, "m",     function (c)
+            c.maximized = false
+            c.maximized_vertical = false
+            c.maximized_horizontal = false
+            c.floating = false
+            c:raise()
+        end ,
+        {description = "demaximize", group = "client"}
+    )
 )
 
 -- Bind all key numbers to tags.

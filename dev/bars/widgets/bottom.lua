@@ -37,8 +37,10 @@ musicwidget.ldecorator = " "
 musicwidget.rdecorator = " "
 -- Set all the servers to work with (here can be any servers you use)
 musicwidget.servers = {
-	{ server = "127.0.0.1",
-	  port = 6600 } }
+	{ server = "localhost",
+	  port = 6600 },
+  	{ server = "m4xs3rv@10.50.50.152",
+	  port = 6600 }}
 -- Set the buttons of the widget
 musicwidget:register_buttons({ { "", awesompd.MOUSE_LEFT, musicwidget:command_playpause() },
 			 { "Control", awesompd.MOUSE_SCROLL_UP, musicwidget:command_prev_track() },
