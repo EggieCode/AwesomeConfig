@@ -1,0 +1,31 @@
+#!/bin/bash
+LANGUAGE="en_US"
+app_name="Spotify"
+current_sink_num=
+sink_num_check=
+app_name_check=
+
+if [ $# -eq 0 ]; then
+    echo "Usage:"
+    echo "$0: [SINK-INPUT-VOLUME]"
+    exit 199
+fi
+
+#pactl list sink-inputs | while read line; do \
+#    sink_num_check=$(echo "$line" |sed -rn 's/^Sink Input #(.*)/\1/p')
+#    if [ "$sink_num_check" != "" ]; then
+#        current_sink_num="$sink_num_check"
+#    else
+#        app_name_check=$(echo "$line" \
+#            |sed -rn 's/application.name = "([^"]*)"/\1/p')
+#            if [ "$app_name_check" = "$app_name" ]; then
+#                echo "$app_name_check $app_name $current_sink_num
+#                pactl set-sink-input-volume "$current_sink_num" $1 &
+#            fi
+#    fi
+#done
+
+pactl list sink-inputs | awk '/Sink Input/{flag=1; input_id=$0}/application\.name = "Spotify"/{flag=0; match(input_id,"#([0-9]*)$",a); print a[1]}' | while read sink_id; do 
+    pactl set-sink-input-volume $sink_id $1
+done
+

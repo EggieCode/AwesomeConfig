@@ -83,5 +83,6 @@ run_once("evolution")
 awful.util.spawn_with_shell("xbacklight","=80")
 run_once("nm-applet")
 run_once("mpd")
-run_once("light-locker", "--idle-hint --lock-after-screensaver=0 --no-late-locking", "light-locker")
-
+run_once("xset", "s 120 120")
+run_once("light-locker", "--idle-hint --lock-after-screensaver=10 --lock-on-suspend", "light-locker")
+awful.spawn.with_shell("xinput", "set-prop", "Primax Kensington Eagle Trackball", "libinput Accel Speed", "-0.8")

@@ -1,0 +1,15 @@
+[submodule "awesome-wm-widgets"]
+	path = awesome-wm-widgets
+    url = https://github.com/streetturtle/awesome-wm-widgets.git
+
+[submodule "awesompd"]
+	path = awesompd
+    url = https://github.com/alexander-yakushev/awesompd.git
+
+[submodule "vicious"]
+	path = vicious
+    url = https://github.com/vicious-widgets/vicious
+
+[submodule "lain"]
+	path = lain
+    url = https://github.com/lcpz/lain.git
