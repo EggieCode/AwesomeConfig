@@ -67,4 +67,3 @@ for s = 1, screen.count() do
     bottom_wibox[s]:set_widget(layout)
 
 end
-

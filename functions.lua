@@ -2,6 +2,15 @@
 local wibox = require("wibox")
 local awful = require("awful")
 
+-- Read an entire file.
+function readall(filename)
+  local fh = assert(io.open(filename, "rb"))
+  local contents = assert(fh:read("a")) -- "a" in Lua 5.3; "*a" in Lua 5.1 and 5.2
+  fh:close()
+  return contents
+end
+
+
 function create_margin_widget(margin_left, margin_right)
 	w = wibox.widget.textbox()
 	return wibox.container.margin(w, margin_left, margin_right)

@@ -31,14 +31,14 @@ awful.screen.connect_for_each_screen(function(s)
     s.top.tasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     s.top.box:buttons(awful.util.table.join(
-                           awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
-                           awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end)
+       awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
+       awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end)
     ))
 
     left_layout:add(mylauncher)
     left_layout:add(create_margin_widget(5,5))
     left_layout:add(s.top.taglist)
-    left_layout:add(s.mypromptbox)
+    left_layout:add(wibox.container.margin(s.mypromptbox, 5, 5))
 
     -- Widgets that are aligned to the right
     if s.index == 1 then right_layout:add(wibox.widget.systray()) end

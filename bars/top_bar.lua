@@ -31,8 +31,8 @@ awful.screen.connect_for_each_screen(function(s)
     s.top.tasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     s.top.box:buttons(awful.util.table.join(
-                           awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
-                           awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end)
+       awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
+       awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end)
     ))
 
     left_layout:add(mylauncher)

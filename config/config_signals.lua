@@ -81,7 +81,7 @@ globalkeys = awful.util.table.join(
               end),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end),
-    awful.key({ "Mod1" }, "Tab", function() 
+    awful.key({ "Mod1" }, "Tab", function()
 	    instance = awful.menu.clients({
 		theme = { width = 250 }
 	    })
@@ -229,4 +229,3 @@ mytasklist.buttons = awful.util.table.join(
                                 end
                             end)
 )
-root.keys(globalkeys)

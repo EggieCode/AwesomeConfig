@@ -46,7 +46,6 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn('terminator') end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "e", awesome.quit),
 
@@ -82,7 +81,7 @@ globalkeys = awful.util.table.join(
               end),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end),
-    awful.key({ "Mod1" }, "Tab", function() 
+    awful.key({ "Mod1" }, "Tab", function()
 	    instance = awful.menu.clients({
 		theme = { width = 250 }
 	    })
@@ -230,4 +229,3 @@ mytasklist.buttons = awful.util.table.join(
                                 end
                             end)
 )
-root.keys(globalkeys)

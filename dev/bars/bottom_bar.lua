@@ -5,11 +5,13 @@ require("awful.widget")
 local bat = require("lain.widget.bat")
 local markup = require("lain.util.markup")
 local separators = require("lain.util.separators")
-
+local spotify_widget = nil
 if DEV then
     local bot_widgets = require("dev.bars.widgets.bottom")
+    spotify_widget = require("dev.bars.widgets.spotify")
 else
     local bot_widgets = require("bars.widgets.bottom")
+    spotify_widget = require("bars.widgets.spotify")
     require("lain")
 end
 
@@ -47,7 +49,7 @@ for s = 1, screen.count() do
     left_layout2.forced_width = 500
     left_layout2:add(cgraph)
     left_layout2:add(spacer)
-    left_layout2:add(mpdwidget)
+    left_layout2:add(spotify_widget)
 
     left_layout3:add(mybattery.widget)
 
@@ -65,4 +67,3 @@ for s = 1, screen.count() do
     bottom_wibox[s]:set_widget(layout)
 
 end
-

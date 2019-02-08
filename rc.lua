@@ -66,6 +66,7 @@ if DEV then
 	require("dev.config.config_signals")
 	require("dev.config.config_rules")
 	require("dev.bars.top_bar")
+	require("dev.bars.todo_bar")
 	require("dev.bars.bottom_bar")
 else
 	require("config.config_layout")
@@ -73,8 +74,11 @@ else
 	require("config.config_signals")
 	require("config.config_rules")
 	require("bars.top_bar")
+	require("bars.todo_bar")
 	require("bars.bottom_bar")
 end
+
+root.keys(globalkeys)
 require("functions")
 
 
