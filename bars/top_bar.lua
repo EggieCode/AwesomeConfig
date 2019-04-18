@@ -38,7 +38,7 @@ awful.screen.connect_for_each_screen(function(s)
     left_layout:add(mylauncher)
     left_layout:add(create_margin_widget(5,5))
     left_layout:add(s.top.taglist)
-    left_layout:add(s.mypromptbox)
+    left_layout:add(wibox.container.margin(s.mypromptbox, 5, 5))
 
     -- Widgets that are aligned to the right
     if s.index == 1 then right_layout:add(wibox.widget.systray()) end

@@ -85,7 +85,10 @@ globalkeys = awful.util.table.join(
 	    instance = awful.menu.clients({
 		theme = { width = 250 }
 	    })
-    end)
+    end),
+    awful.key({ modkey },            "Delete",     function ()
+        awful.util.spawn_with_shell("light-locker-command -l")
+        end)
 )
 
 clientkeys = awful.util.table.join(

@@ -23,8 +23,9 @@ else
 end
 
 -- Standard awesome library
-local gears = require("gears")
-local awful = require("awful")
+gears = require("gears")
+awful = require("awful")
+--awful.debug = require("awful.debug")
 awful.rules = require("awful.rules")
 require("awful.autofocus")
 -- Widget and layout library
@@ -61,6 +62,7 @@ end
 -- }}}
 
 if DEV then
+    modkey = "Mod1"
 	require("dev.config.config_layout")
 	require("dev.config.config_defines")
 	require("dev.config.config_signals")
@@ -69,6 +71,7 @@ if DEV then
 	require("dev.bars.todo_bar")
 	require("dev.bars.bottom_bar")
 else
+    modkey = "Mod4"
 	require("config.config_layout")
 	require("config.config_defines")
 	require("config.config_signals")
@@ -87,6 +90,8 @@ run_once("evolution")
 awful.util.spawn_with_shell("xbacklight","=80")
 run_once("nm-applet")
 run_once("mpd")
-run_once("xset", "s 120 120")
+if not DEV then
+    run_once("xset", "s 120 120")
+end
 run_once("light-locker", "--idle-hint --lock-after-screensaver=10 --lock-on-suspend", "light-locker")
 awful.spawn.with_shell("xinput", "set-prop", "Primax Kensington Eagle Trackball", "libinput Accel Speed", "-0.8")

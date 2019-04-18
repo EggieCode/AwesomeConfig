@@ -8,6 +8,7 @@
 -- @copyright 2018 Pavel Makhov
 -------------------------------------------------
 
+local gears = require("gears")
 local awful = require("awful")
 local wibox = require("wibox")
 local watch = require("awful.widget.watch")
@@ -50,7 +51,7 @@ local update_widget_text = function(widget, stdout, _, _, _)
         widget:set_text('')
         widget:set_visible(false)
     else
-        widget:set_text(stdout)
+        widget:set_text(gears.string.xml_escape(stdout))
         widget:set_visible(true)
     end
 end

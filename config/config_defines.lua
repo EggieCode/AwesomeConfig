@@ -2,7 +2,6 @@ local awful = require("awful")
 local menubar = require("menubar")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
-modkey = "Mod4"
 terminal = "lxterminal"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
